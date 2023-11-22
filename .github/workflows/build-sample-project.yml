@@ -36,6 +36,8 @@ jobs:
         run: npx esy install
       - name: Build esy dependencies
         run: npx esy build-dependencies --release
+      - name: Export esy dependencies for local cache warm up
+        run: npx esy export-dependencies
       - name: Build project
         run: npx esy build --release
       - name: Bundle JS app
