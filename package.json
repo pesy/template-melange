@@ -1,4 +1,8 @@
 {
+  "pesy": {
+    "github": "pesy/template-melange",
+    "azure-project": "TODO"
+  },
   "scripts": {
     "build": "esy",
     "build:watch": "esy && esy build:watch",

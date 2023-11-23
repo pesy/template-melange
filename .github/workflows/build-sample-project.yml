@@ -35,7 +35,13 @@ jobs:
       - name: esy install
         run: npx esy install
       - name: Build esy dependencies
-        run: npx esy build-dependencies --release
+        run: npx esy build-dependencies
+      - name: Export esy dependencies for local cache warm up
+        run: npx esy export-dependencies
+      - uses: actions/upload-artifact@v3
+        with:
+          name: cache-${{matrix.system}}
+          path: ./_export
       - name: Build project
         run: npx esy build --release
       - name: Bundle JS app
